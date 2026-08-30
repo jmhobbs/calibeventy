@@ -1,0 +1,20 @@
+---
+title: Books
+---
+
+<h1>All Books</h1>
+
+{% for book in calibre.books %}
+<a class="book">
+    {% if book.coverPath %}
+    <img src="{{ book.coverPath }}" alt="{{ book.title }} cover" />
+    {% else %}
+    <span class="title">{{ book.title }}</span>
+    <span class="authors">
+    {% for author in book.authors %}
+        <span class="author">{{ author.name }}</span>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+    </span>
+    {% endif %}
+</a>
+{% endfor %}
