@@ -3,9 +3,13 @@ a.book {
   display: inline-block;
   width: 100px;
   height: 150px;
-  border: 1px solid black;
+  margin: 0 0.5rem 0.5rem 0;
+  border: 1px solid var(--secondary-light);
+  border-radius: var(--border-radius);
   overflow: hidden;
   padding: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 a.book span {
@@ -20,9 +24,12 @@ a.book img {
 }
 
 a.book:hover {
-  background-color: #f0f0f0;
+  background-color: var(--primary-lighter);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 a.book.active {
-  background-color: #d0d0d0;
+  background-color: var(--primary-light);
+  border-color: var(--primary);
 }

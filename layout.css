@@ -1,12 +1,21 @@
 header {
-  background-color: #444; 
-  padding: 10px;
-  color: #eee;
+  background-color: var(--secondary-darker);
+  padding: 0.75rem 1rem;
+  color: var(--primary-light);
   margin-bottom: 1.5em;
+  border-radius: var(--border-radius);
 }
 
-header a {
-  color: #eee;
-  text-decoration: none;
-  margin-right: 15px;
+header nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+header nav a {
+  color: var(--primary-lighter) !important;
+  text-decoration: none !important;
+}
+
+header nav a:hover {
+  text-decoration: underline !important;
 }
