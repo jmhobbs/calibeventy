@@ -1,0 +1,18 @@
+{% assign current_letter = "" %}
+{% for publisher in calibre.publishers %}
+  {% capture first_letter %}{{ publisher.name | slice: 0, 1 | upcase }}{% endcapture %}
+  {% if first_letter != current_letter %}
+    {% if current_letter != "" %}
+      </ul>
+    {% endif %}
+    {% assign current_letter = first_letter %}
+    <h2>{{ current_letter }}</h2>
+    <ul>
+  {% endif %}
+  <li>
+  <a class="publisher" href="/publisher/{{ publisher.id }}/#{{ publisher.name | url_encode }}">
+    <span class="name">{{ publisher.name }}</span>
+  </a>
+  </li>
+{% endfor %}
+    </ul>
