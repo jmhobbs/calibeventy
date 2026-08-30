@@ -3,16 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="11ty {{ eleventy.generator }}">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <header>
       <nav>
+        Calibeventy
         <a href="/">Home</a>
         <a href="/authors">Authors</a>
       </nav>
     </header>
-    {{ content }}
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      <p><a href="https://github.com/jmhobbs/calibeventy">Calibeventy</a> &mdash; Builty with 11ty {{ eleventy.version }}</p>
+    </footer>
   </body>
 </html>
