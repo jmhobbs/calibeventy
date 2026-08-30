@@ -5,12 +5,18 @@ a.book {
   height: 150px;
   border: 1px solid black;
   overflow: hidden;
-  padding: 10px;
-  font-size: 12px;
+  padding: 0;
 }
+
+a.book span {
+  padding: 0.5rem;
+  display: block;
+  overflow: hidden;
+}
+
 a.book img {
-  max-width: 100px;
-  max-height: 150px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 a.book:hover {

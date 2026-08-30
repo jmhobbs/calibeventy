@@ -1,0 +1,19 @@
+
+{% assign current_letter = "" %}
+{% for author in calibre.authors %}
+  {% capture first_letter %}{{ author.name | slice: 0, 1 | upcase }}{% endcapture %}
+  {% if first_letter != current_letter %}
+    {% if current_letter != "" %}
+      </ul>
+    {% endif %}
+    {% assign current_letter = first_letter %}
+    <h2>{{ current_letter }}</h2>
+    <ul>
+  {% endif %}
+  <li>
+  <a class="author" href="/author/{{ author.id }}/#{{ author.name | url_encode }}">
+    <span class="name">{{ author.sort }}</span>
+  </a>
+  </li>
+{% endfor %}
+    </ul>

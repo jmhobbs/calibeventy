@@ -17,8 +17,16 @@ export default async function () {
     series[id].sort((a, b) => a.series.index - b.series.index);
   }
 
+  const authors= {};
+  books.forEach((book) => {
+    book.authors.forEach((author) => {
+        authors[author.id] = author;
+    })
+  });
+
   return {
     books,
     series,
+    authors: Array.from(Object.values(authors)).sort((a, b) => a.sort.localeCompare(b.sort)),
   }
 };

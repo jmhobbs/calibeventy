@@ -1,0 +1,22 @@
+---
+pagination:
+  data: calibre.authors
+  size: 1
+  alias: author
+permalink: "author/{{ author.id }}/"
+---
+<h1>{{ author.name }}</h1>
+
+{% for book in calibre.books %}
+  {% for book_author in book.authors %}
+    {% if book_author.id == author.id %}
+      <a href="/book/{{ book.id }}/#{{ book.title | slugify }}" class="book">
+        {% if book.coverPath %}
+          <img src="./{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" />
+        {% else %}
+          {{ book.title }}
+        {% endif %}
+      </a>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
