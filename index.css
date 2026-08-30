@@ -1,0 +1,22 @@
+/* Index View */
+a.book {
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+  border: 1px solid black;
+  overflow: hidden;
+  padding: 10px;
+  font-size: 12px;
+}
+a.book img {
+  max-width: 100px;
+  max-height: 150px;
+}
+
+a.book:hover {
+  background-color: #f0f0f0;
+}
+
+a.book.active {
+  background-color: #d0d0d0;
+}

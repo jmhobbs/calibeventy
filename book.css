@@ -1,0 +1,12 @@
+/* Book View */
+img.cover {
+  max-width: 200px;
+  max-height: 300px;
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+h3 {
+  clear: both;
+}

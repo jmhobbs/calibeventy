@@ -2,32 +2,11 @@
 permalink: style.css
 ---
 {% include "./node_modules/almond.css/dist/almond.min.css";" %}
-
-/* Index View */
-a.book {
-  display: inline-block;
-  width: 100px;
-  height: 150px;
-  border: 1px solid black;
-  overflow: hidden;
-  padding: 10px;
-  font-size: 12px;
+/* override almond */
+p {
+  max-width: initial;
 }
-a.book img {
-  max-width: 100px;
-  max-height: 150px;
-}
-
-a.book:hover {
-  background-color: #f0f0f0;
-}
-
-a.book.active {
-  background-color: #d0d0d0;
-}
-
-/* Book View */
-img.cover {
-  max-width: 200px;
-  max-height: 300px;
-}
+/* site specific styles */
+{% include "layout.css" %}
+{% include "index.css" %}
+{% include "book.css" %}

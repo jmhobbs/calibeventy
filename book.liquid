@@ -1,0 +1,32 @@
+---
+pagination:
+  data: calibre.books
+  size: 1
+  alias: book
+permalink: "book/{{ book.id }}/"
+---
+<div>
+  <img src="{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" class="cover" />
+  <h1>{{ book.title }}</h1>
+  <h2>by {% for author in book.authors %}{{ author.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</h2>
+  <p>{{ book.comments }}</p>
+</div>
+
+<h3>Formats</h3>
+<ul>
+  {% for format in book.formats %}
+    <li>{{ format.format }} ({{ format.sizeBytes | humanize_filesize}})</li>
+  {% endfor %}
+</ul>
+
+{% if book.series %}
+  <h3>Series: {{ book.series.name }} ({{ book.series.index }})</h3>
+  {% for series_book in calibre.series[book.series.id] %}
+    <a href="/book/{{ series_book.id }}#{{ series_book.title | slugify }}" class="book{% if series_book.id == book.id %} active{% endif %}">
+    {% if series_book.coverPath %}
+      <img src="./{{ series_book.coverPath }}" alt="{{ series_book.title }} cover" loading="lazy" />
+    {% else %}
+      {{ series_book.title }} ({{ series_book.series.index }})
+    {% endif %}</a>
+  {% endfor %}
+{% endif %}

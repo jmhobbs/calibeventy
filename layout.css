@@ -1,0 +1,12 @@
+header {
+  background-color: #444; 
+  padding: 10px;
+  color: #eee;
+  margin-bottom: 1.5em;
+}
+
+header a {
+  color: #eee;
+  text-decoration: none;
+  margin-right: 15px;
+}
