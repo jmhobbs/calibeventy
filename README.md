@@ -13,3 +13,10 @@ The gobal data file `calibre.js` reads your Calibre Library database and mangles
 To use calibeventy, you need to symlink (or move, if you're feeling frisky) your `Calibre Library` directory into the root of this repository.
 
 After that, it's just eleventy, so let 'er rip with a `npm run dev` or a `npm run build`
+
+### Download Links
+
+> [!CAUTION]
+> Don't do a copyright violation my dudes.
+
+If you would like to include your eBook files in the output site, and allow for downloads, set the environment variable `INCLUDE_BOOK_FILES` to the string `true` during build.

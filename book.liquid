@@ -15,7 +15,11 @@ permalink: "book/{{ book.id }}/"
 <h3>Formats</h3>
 <ul>
   {% for format in book.formats %}
-    <li>{{ format.format }} ({{ format.sizeBytes | humanize_filesize}})</li>
+    <li>
+      {{ format.format }}
+      ({{ format.sizeBytes | humanize_filesize}})
+      {% if includeBookFiles %}<a href="/{{ format.path }}" download>Download</a>{% endif %}
+    </li>
   {% endfor %}
 </ul>
 
