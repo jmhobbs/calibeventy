@@ -7,7 +7,7 @@ import sanitizeHtml from 'sanitize-html';
 const includeBookFiles = process.env.INCLUDE_BOOK_FILES === 'true';
 
 export default function(eleventyConfig) {
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {widths: [200, 'auto']});
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {widths: [200, 600, 'auto']});
   
   eleventyConfig.addGlobalData("layout", "layout.liquid");
   eleventyConfig.addGlobalData("includeBookFiles", includeBookFiles);
