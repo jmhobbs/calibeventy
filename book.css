@@ -1,4 +1,8 @@
 /* Book View */
+.book-details {
+  display: flow-root;
+}
+
 img.cover {
   max-width: 200px;
   max-height: 300px;
@@ -9,6 +13,7 @@ img.cover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-h3 {
+section {
   clear: both;
+  margin: 1.5em 0;
 }
