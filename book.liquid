@@ -7,8 +7,8 @@ permalink: "book/{{ book.id }}/"
 ---
 <div class="book-details">
   <img src="{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" class="cover" />
-  <h1>{{ book.title }}</h1>
-  <h3>by {% for author in book.authors %}<a href="/author/{{author.id}}#{{author.name | slugify}}">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</h3>
+  <h1 data-pagefind-weight="10">{{ book.title }}</h1>
+  <h3>by {% for author in book.authors %}<a href="/author/{{author.id}}#{{author.name | slugify}}" data-pagefind-filter="author">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</h3>
   <p>{{ book.comments | sanitized_html }}</p>
 </div>
 
@@ -28,7 +28,7 @@ permalink: "book/{{ book.id }}/"
 
 {% if book.series %}
 <section>
-  <h3>Series: {{ book.series.name }} #{{ book.series.index }}</h3>
+  <h3>Series: <span data-pagefind-filter="series">{{ book.series.name }}</span> #{{ book.series.index }}</h3>
   {% for series_book in calibre.series[book.series.id] %}
     <a href="/book/{{ series_book.id }}#{{ series_book.title | slugify }}" class="book{% if series_book.id == book.id %} active{% endif %}">
     {% if series_book.coverPath %}

@@ -6,9 +6,12 @@
     <meta name="generator" content="11ty {{ eleventy.generator }}">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/style.css">
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
   </head>
   <body>
     <header>
+      <pagefind-searchbox></pagefind-searchbox>
       <nav>
         Calibeventy
         <a href="/">Home</a>

@@ -16,9 +16,14 @@ header {
   border-radius: var(--border-radius);
 }
 
+header pagefind-searchbox {
+  float: right;
+}
+
 header nav {
   display: flex;
   gap: 1.25rem;
+  padding: 10px 0px;
 }
 
 header nav a {
