@@ -15,7 +15,9 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-img": "^7.0.0",
+    "@types/sanitize-html": "^2.16.1",
     "almond.css": "^1.2.2",
-    "humanize": "^0.0.9"
+    "humanize": "^0.0.9",
+    "sanitize-html": "^2.17.7"
   }
 }

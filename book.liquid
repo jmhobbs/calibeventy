@@ -9,7 +9,7 @@ permalink: "book/{{ book.id }}/"
   <img src="{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" class="cover" />
   <h1>{{ book.title }}</h1>
   <h2>by {% for author in book.authors %}<a href="/author/{{author.id}}#{{author.name | slugify}}">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</h2>
-  <p>{{ book.comments }}</p>
+  <p>{{ book.comments | sanitized_html }}</p>
 </div>
 
 <h3>Formats</h3>
