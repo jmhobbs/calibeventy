@@ -1,11 +1,11 @@
 ---
-title: Books
+title: All Books
 ---
 
 <h1>All Books</h1>
 
 {% for book in calibre.books %}
-<a class="book">
+<a class="book" href="/book/{{ book.id }}/#{{ book.title | url_encode }}">
     {% if book.coverPath %}
     <img src="./{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" />
     {% else %}

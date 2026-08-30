@@ -2,5 +2,23 @@ import { CalibreLibrary } from "../calibre/src/index.js";
 
 export default async function () {
   const library = new CalibreLibrary('./Calibre Library/')
-  return { books: library.listBooks() }
+  const books = library.listBooks();
+
+  const series = {};
+  books.forEach((book) => {
+    if(book.series) {
+      if(series[book.series.id] == undefined) {
+        series[book.series.id] = [];
+      }
+      series[book.series.id].push(book);
+    }
+  });
+  for (let id in series) {
+    series[id].sort((a, b) => a.series.index - b.series.index);
+  }
+
+  return {
+    books,
+    series,
+  }
 };
