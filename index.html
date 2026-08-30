@@ -7,7 +7,7 @@ title: Books
 {% for book in calibre.books %}
 <a class="book">
     {% if book.coverPath %}
-    <img src="{{ book.coverPath }}" alt="{{ book.title }} cover" />
+    <img src="./{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" />
     {% else %}
     <span class="title">{{ book.title }}</span>
     <span class="authors">
