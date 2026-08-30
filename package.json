@@ -1,11 +1,12 @@
 {
-  "name": "calibre-eleventy",
-  "version": "1.0.0",
+  "name": "calibeventy",
+  "version": "0.0.1",
   "description": "",
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "eleventy --serve"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "keywords": [],
   "author": "",
