@@ -1,4 +1,5 @@
 import { CalibreLibrary } from "../calibre/src/index.js";
+import slugify from '@sindresorhus/slugify';
 
 export default async function () {
   const library = new CalibreLibrary('./Calibre Library/')
@@ -30,11 +31,23 @@ export default async function () {
       publishers[book.publisher.id] = book.publisher;
     }
   });
+ 
+  const tags = {};
+  books.forEach((book) => {
+    book.tags.forEach((tag) => {
+      const slug = slugify(tag);
+      if(tags[slug] === undefined) {
+        tags[slug] = {name: tag, books: []};
+      }
+      tags[slug].books.push(book);
+    });
+  });
 
   return {
     books,
     series,
     authors: Array.from(Object.values(authors)).sort((a, b) => a.sort.localeCompare(b.sort)),
     publishers: Array.from(Object.values(publishers)).sort((a, b) => a.name.localeCompare(b.name)),
+    tags: Array.from(Object.entries(tags)).map(([slug, body]) => ({ slug, body })).sort((a, b) => a.slug.localeCompare(b.slug)),
   }
 };

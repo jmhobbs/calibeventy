@@ -1,3 +1,5 @@
+<h1>Publishers</h1>
+
 {% assign current_letter = "" %}
 {% for publisher in calibre.publishers %}
   {% capture first_letter %}{{ publisher.name | slice: 0, 1 | upcase }}{% endcapture %}

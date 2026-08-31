@@ -1,3 +1,5 @@
+<h1>Authors</h1>
+
 {% assign current_letter = "" %}
 {% for author in calibre.authors %}
   {% capture first_letter %}{{ author.sort | slice: 0, 1 | upcase }}{% endcapture %}

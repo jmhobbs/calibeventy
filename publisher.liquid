@@ -5,7 +5,7 @@ pagination:
   alias: publisher
 permalink: "publisher/{{ publisher.id }}/"
 ---
-<h1>{{ publisher.name }}</h1>
+<h1 data-pagefind-filter="publisher" data-pagefind-weight="1">{{ publisher.name }}</h1>
 
 {% for book in calibre.books %}
   {% if book.publisher.id == publisher.id %}

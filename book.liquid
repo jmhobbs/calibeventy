@@ -12,6 +12,29 @@ permalink: "book/{{ book.id }}/"
   <p>{{ book.comments | sanitized_html }}</p>
 </div>
 
+<section>
+  <h3>Metadata</h3>
+  <ul>
+    {% if book.publisher %}
+    <li>Publisher: <a href="/publisher/{{ book.publisher.id }}#{{ book.publisher.name | slugify }}">{{ book.publisher.name }}</a></li>
+    {% endif %}
+    {% if book.pubdate %}
+    <li>Published: {{ book.pubdate | date: "%B %d, %Y" }}</li>
+    {% endif %}
+    {% if book.identifiers.isbn %}
+    <li data-pagefind-weight="4">ISBN: {{ book.identifiers.isbn }}</li>
+    {% endif %}
+    {% if book.languages %}
+    <li>Language: {{ book.languages | join:", " }}</li>
+    {% endif %}
+    {% if book.rating %}
+    <li>Rating: {{ book.rating }} / 5</li>
+    {% endif %}
+    {% if book.tags.length > 0 %}
+    <li>Tags: {% for tag in book.tags %}<a href="/tag/{{ tag | slugify }}" data-pagefind-filter="tag">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+    {% endif %}
+  </ul>
+</section>
 
 <section>
   <h3>Formats</h3>

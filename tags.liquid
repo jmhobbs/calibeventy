@@ -1,0 +1,20 @@
+<h1>Tags</h1>
+
+{% assign current_letter = "" %}
+{% for tag in calibre.tags %}
+  {% capture first_letter %}{{ tag.body.name | slice: 0, 1 | upcase }}{% endcapture %}
+  {% if first_letter != current_letter %}
+    {% if current_letter != "" %}
+      </ul>
+    {% endif %}
+    {% assign current_letter = first_letter %}
+    <h2>{{ current_letter }}</h2>
+    <ul>
+  {% endif %}
+  <li>
+  <a class="tag" href="/tag/{{ tag.slug | url_encode }}">
+    <span class="name">{{ tag.body.name }}</span>
+  </a>
+  </li>
+{% endfor %}
+    </ul>

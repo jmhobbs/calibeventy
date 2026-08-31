@@ -1,0 +1,18 @@
+---
+pagination:
+  data: calibre.tags
+  size: 1
+  alias: tag
+permalink: "tag/{{ tag.slug }}/"
+---
+<h1 data-pagefind-filter="tag" data-pagefind-weight="1">{{ tag.body.name }}</h1>
+
+{% for book in tag.body.books %}
+  <a href="/book/{{ book.id }}/#{{ book.title | slugify }}" class="book">
+    {% if book.coverPath %}
+      <img src="./{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" />
+    {% else %}
+      {{ book.title }}
+    {% endif %}
+  </a>
+{% endfor %}
