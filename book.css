@@ -17,3 +17,11 @@ section {
   clear: both;
   margin: 1.5em 0;
 }
+
+@media (max-width: 800px) {
+  img.cover {
+    float: none;
+    display: block;
+    margin: 0 0 1em 0;
+  }
+}

@@ -35,6 +35,23 @@ header nav a:hover {
   text-decoration: underline !important;
 }
 
+@media (max-width: 800px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header pagefind-searchbox {
+    float: none;
+    order: 2;
+    width: 100%;
+  }
+
+  header nav {
+    order: 1;
+  }
+}
+
 footer {
   flex-shrink: 0;
   margin-top: 1.5em;
