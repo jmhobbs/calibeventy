@@ -2,9 +2,10 @@
 title: Home
 ---
 
-<h1>All Books</h1>
+<h1>Recently Added</h1>
 
-{% for book in calibre.books %}
+{% assign recent_books = calibre.books | sort: "id" | reverse %}
+{% for book in recent_books limit: 24 %}
 <a class="book" href="/book/{{ book.id }}/#{{ book.title | url_encode }}">
     {% if book.coverPath %}
     <img src="./{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" />
@@ -18,3 +19,14 @@ title: Home
     {% endif %}
 </a>
 {% endfor %}
+
+<p class="cta"><a href="/books/">View All &raquo;</a></p>
+
+<h1>Top Tags</h1>
+
+{% assign top_tags = calibre.tags | sort: "body.books.size" | reverse %}
+<ol class="pills">
+  {% for tag in top_tags limit: 24 %}
+  <li><a class="tag" href="/tag/{{ tag.slug }}/">{{ tag.body.name }}</a></li>
+  {% endfor %}
+</ol>

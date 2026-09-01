@@ -1,0 +1,35 @@
+---
+pagination:
+  data: calibre.books
+  size: 80
+  permalink: "{% if pagination.pageNumber > 0 %}books/{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+eleventyComputed:
+  title: "Books - Page {{ pagination.pageNumber | plus: 1 }}"
+---
+
+<h1>Books - Page {{ pagination.pageNumber | plus: 1 }}</h1>
+
+{% for book in pagination.items %}
+<a class="book" href="/book/{{ book.id }}/#{{ book.title | url_encode }}">
+    {% if book.coverPath %}
+    <img src="./{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" />
+    {% else %}
+    <span class="title">{{ book.title }}</span>
+    <span class="authors">
+    {% for author in book.authors %}
+        <span class="author">{{ author.name }}</span>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+    </span>
+    {% endif %}
+</a>
+{% endfor %}
+
+<nav class="pagination" aria-label="Pagination">
+  <ol>
+    <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">&laquo;</a>{% else %}&laquo;{% endif %}</li>
+    {%- for pageEntry in pagination.pages %}
+    <li><a href="{{ pagination.hrefs[ forloop.index0 ] }}"{% if page.url == pagination.hrefs[ forloop.index0 ] %} aria-current="page"{% endif %}>{{ forloop.index }}</a></li>
+    {%- endfor %}
+    <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">&raquo;</a>{% else %}&raquo;{% endif %}</li>
+  </ol>
+</nav>

@@ -33,3 +33,82 @@ a.book.active {
   background-color: var(--primary-light);
   border-color: var(--primary);
 }
+
+nav.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+nav.pagination ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav.pagination li {
+  display: inline-block;
+  margin: 0 0.25rem;
+}
+
+nav.pagination a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--secondary-light);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+nav.pagination a:hover {
+  background-color: var(--primary-lighter);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav.pagination a[aria-current] {
+  background-color: var(--primary);
+  color: var(--secondary-light);
+  border-color: var(--primary);
+  pointer-events: none;
+}
+
+p.cta {
+  text-align: right;
+  margin: 0 20px;
+}
+
+p.cta a {
+  text-decoration: none;
+}
+
+p.cta a:hover {
+  text-decoration: underline;
+}
+
+ol.pills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ol.pills li {
+  margin: 0.25rem;
+}
+
+ol.pills li a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--secondary-light);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+ol.pills li a:hover {
+  background-color: var(--primary-lighter);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
