@@ -3,7 +3,9 @@ pagination:
   data: calibre.books
   size: 1
   alias: book
-permalink: "book/{{ book.id }}/"
+  permalink: "book/{{ book.id }}/"
+eleventyComputed:
+  title: "{{ book.title }} by {% for author in book.authors %}{{ author.name }}{% if not forloop.last %}, {% endif %}{% endfor %}"
 ---
 <div class="book-details">
   <img src="{{ book.coverPath }}" alt="{{ book.title }} cover" loading="lazy" class="cover" />

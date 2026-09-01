@@ -3,7 +3,9 @@ pagination:
   data: calibre.authors
   size: 1
   alias: author
-permalink: "author/{{ author.id }}/"
+  permalink: "author/{{ author.id }}/"
+eleventyComputed:
+  title: "Author -- {{ author.name }}"
 ---
 <h1 data-pagefind-filter="author" data-pagefind-weight="1">{{ author.name }}</h1>
 

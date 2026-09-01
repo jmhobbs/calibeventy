@@ -3,7 +3,9 @@ pagination:
   data: calibre.tags
   size: 1
   alias: tag
-permalink: "tag/{{ tag.slug }}/"
+  permalink: "tag/{{ tag.slug }}/"
+eleventyComputed:
+  title: "Tag -- {{ tag.body.name }}"
 ---
 <h1 data-pagefind-filter="tag" data-pagefind-weight="1">{{ tag.body.name }}</h1>
 

@@ -3,7 +3,9 @@ pagination:
   data: calibre.publishers
   size: 1
   alias: publisher
-permalink: "publisher/{{ publisher.id }}/"
+  permalink: "publisher/{{ publisher.id }}/"
+eleventyComputed:
+  title: "Publisher -- {{ publisher.name }}"
 ---
 <h1 data-pagefind-filter="publisher" data-pagefind-weight="1">{{ publisher.name }}</h1>
 
